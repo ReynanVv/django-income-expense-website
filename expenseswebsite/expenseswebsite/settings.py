@@ -13,6 +13,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 from pathlib import Path
+import django_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -125,7 +127,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'expenseswebsite/static')]
 STATIC_ROOT=os.path.join(BASE_DIR, 'static')
 
+django_heroku.settings(locals())
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
